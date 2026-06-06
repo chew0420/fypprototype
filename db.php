@@ -121,6 +121,20 @@ try {
             ('24 Inch Monitor', 450.00, 'Full HD IPS monitor', 'img/monitor.png', 10, 5),
             ('Laptop Stand', 45.00, 'Aluminum adjustable laptop stand', 'img/laptop.png', 5, 5)");
     }
+
+    $stmt = $pdo->prepare("SELECT COUNT(*) FROM tbl_category");
+    $stmt->execute();
+    if($stmt->fetchColumn() == 0) {
+        $pdo->exec("INSERT INTO tbl_category (category_name) VALUES 
+            ('Laptops'),
+            ('PC & Computer Parts'),
+            ('Data Storage'),
+            ('Audio'),
+            ('Networking'),
+            ('Gaming'),
+            ('Home & Office Supplies')");
+    }
+
     
 } catch(PDOException $e) {
     die("Connection failed: " . $e->getMessage());
