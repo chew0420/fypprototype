@@ -1,9 +1,7 @@
 <?php
-// index.php - Default homepage
 session_start();
 require_once 'db.php';
 
-// Check if user is logged in
 if(isset($_SESSION['user_id'])) {
     // Redirect to role-based dashboard
     if($_SESSION['role'] == 'admin') {
@@ -18,7 +16,6 @@ if(isset($_SESSION['user_id'])) {
     exit();
 }
 
-// Get products for public view
 $products = $pdo->query("SELECT * FROM tbl_product LIMIT 4")->fetchAll();
 
 $current_page = basename($_SERVER['PHP_SELF']);

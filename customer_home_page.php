@@ -19,6 +19,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
 <html>
 <head>
     <title>Winsoft Solution</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -132,15 +133,15 @@ $current_page = basename($_SERVER['PHP_SELF']);
     <div class="navbar">
         <a href="index.php"><img src="img/winsoftlogo.png" alt="Winsoft Logo""></a>
         <div>
-            <a href="cart.php">Cart</a>
-            <a href="profile.php">Profile</a>
-            <a href="logout.php">Logout</a>
+            <a href="cart.php"><i class="fas fa-shopping-cart" style="font-size: 24px; color: #333;"></i></a>
+            <a href="profile.php"><i class="fas fa-user" style="font-size: 24px; color: #333;"></i></a>
+            <a href="logout.php"><i class="fas fa-sign-out-alt" style="font-size: 24px; color: #333;"></i></a>
         </div>
     </div>
 
     <!-- page nav bar -->
     <div class="second-nav">
-        <a href="index.php" class="<?php echo ($current_page == 'index.php') ? 'active' : ''; ?>">Home</a>
+        <a href="index.php" class="<?php echo ($current_page == 'customer_home_page.php') ? 'active' : ''; ?>">Home</a>
         <a href="shopping.php" class="<?php echo ($current_page == 'shopping.php') ? 'active' : ''; ?>">Shopping</a>
         <a href="service.php" class="<?php echo ($current_page == 'service.php') ? 'active' : ''; ?>">Service</a>
         <a href="contact_us.php" class="<?php echo ($current_page == 'contact_us.php') ? 'active' : ''; ?>">Contact Us</a>
