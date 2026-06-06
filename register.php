@@ -173,13 +173,13 @@ if(isset($_POST['register'])) {
 </head>
 <body>
     <div class="navbar">
-        <a href="index.php"><img src="/img/winsoftlogo.png" alt="Winsoft Logo"></a>
+        <a href="index.php"><img src="img/winsoftlogo.png" alt="Winsoft Logo"></a>
         <p style="font-size: 25px; font-weight: bold;">Sign Up</p>
     </div>
 
     <div class="main-container">
         <div class="brand-section">
-            <img src="/img/winsoftlogo.png" alt="Winsoft Logo">
+            <img src="img/winsoftlogo.png" alt="Winsoft Logo">
             <h2>Winsoft Solution</h2>
             <h1>The Leading Online IT Store</h1>
         </div>

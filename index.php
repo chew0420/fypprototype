@@ -139,7 +139,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
 <body>
     <!-- top nav bar -->
     <div class="navbar">
-        <a href="index.php"><img src="/img/winsoftlogo.png" alt="Winsoft Logo""></a>
+        <a href="index.php"><img src="img/winsoftlogo.png" alt="Winsoft Logo""></a>
         <div>
             <a href="index.php">Home</a>
             <a href="login.php">Login</a>
@@ -158,7 +158,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
     
     <!-- banner -->
     <div class="banner">
-        <img src="/img/banner.jpg" alt="Winsoft Banner">
+        <img src="img/banner.jpg" alt="Winsoft Banner">
     </div>
     
     <div class="container">

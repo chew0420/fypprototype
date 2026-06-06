@@ -116,10 +116,10 @@ try {
     $stmt->execute();
     if($stmt->fetchColumn() == 0) {
         $pdo->exec("INSERT INTO tbl_product (product_name, price, description, image, stock_quantity, min_stock_level) VALUES 
-            ('Gaming Mouse', 89.00, 'High performance gaming mouse with RGB lighting', '/img/mouse.jpg', 20, 5),
-            ('Mechanical Keyboard', 150.00, 'RGB mechanical keyboard with blue switches', '/img/keyboard.png', 25, 5),
-            ('24 Inch Monitor', 450.00, 'Full HD IPS monitor', '/img/monitor.png', 10, 5),
-            ('Laptop Stand', 45.00, 'Aluminum adjustable laptop stand', '/img/laptop.png', 5, 5)");
+            ('Gaming Mouse', 89.00, 'High performance gaming mouse with RGB lighting', 'img/mouse.jpg', 20, 5),
+            ('Mechanical Keyboard', 150.00, 'RGB mechanical keyboard with blue switches', 'img/keyboard.png', 25, 5),
+            ('24 Inch Monitor', 450.00, 'Full HD IPS monitor', 'img/monitor.png', 10, 5),
+            ('Laptop Stand', 45.00, 'Aluminum adjustable laptop stand', 'img/laptop.png', 5, 5)");
     }
     
 } catch(PDOException $e) {
