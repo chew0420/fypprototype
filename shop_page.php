@@ -2,8 +2,17 @@
 session_start();
 require_once 'db.php';
 
-if(!isset($_SESSION['user_id']) || $_SESSION['role'] != 'customer') {
-    header("Location: login.php");
+if(isset($_SESSION['user_id'])) {
+    // Redirect to role-based dashboard
+    if($_SESSION['role'] == 'admin') {
+        header("Location: admin_home.php");
+    } elseif($_SESSION['role'] == 'staff') {
+        header("Location: staff_home.php");
+    } elseif($_SESSION['role'] == 'technician') {
+        header("Location: technician_home.php");
+    } else {
+        header("Location: customer_home_page.php");
+    }
     exit();
 }
 
@@ -140,16 +149,16 @@ if($selected_category == 'All Products'){
         <div class="navbar">
         <a href="index.php"><img src="img/winsoftlogo.png" alt="Winsoft Logo""></a>
         <div>
-            <a href="cart.php"><i class="fas fa-shopping-cart" style="font-size: 24px; color: #333;"></i></a>
-            <a href="profile.php"><i class="fas fa-user" style="font-size: 24px; color: #333;"></i></a>
-            <a href="logout.php"><i class="fas fa-sign-out-alt" style="font-size: 24px; color: #333;"></i></a>
+            <a href="index.php">Home</a>
+            <a href="login.php">Login</a>
+            <a href="register.php">Register</a>
         </div>
     </div>
 
     <!-- page nav bar -->
     <div class="second-nav">
-        <a href="customer_home_page.php" class="<?php echo ($current_page == 'customer_home_page.php') ? 'active' : ''; ?>">Home</a>
-        <a href="customer_shop_page.php" class="<?php echo ($current_page == 'customer_shop_page.php') ? 'active' : ''; ?>">Shopping</a>
+        <a href="index.php" class="<?php echo ($current_page == 'index.php') ? 'active' : ''; ?>">Home</a>
+        <a href="shop_page.php" class="<?php echo ($current_page == 'shop_page.php') ? 'active' : ''; ?>">Shopping</a>
         <a href="service.php" class="<?php echo ($current_page == 'service.php') ? 'active' : ''; ?>">Service</a>
         <a href="contact_us.php" class="<?php echo ($current_page == 'contact_us.php') ? 'active' : ''; ?>">Contact Us</a>
         <a href="store_location.php" class="<?php echo ($current_page == 'store_location.php') ? 'active' : ''; ?>">Store Location</a>
@@ -162,7 +171,7 @@ if($selected_category == 'All Products'){
 
     <div class="category-nav">
         <?php foreach($categories as $category): ?>
-        <a href="customer_shop_page.php?category=<?php echo urlencode($category['category_name']); ?>"class="<?php echo ($selected_category == $category['category_name']) ? 'active-category' : ''; ?>"><?php echo $category['category_name']; ?></a>
+        <a href="shop_page.php?category=<?php echo urlencode($category['category_name']); ?>"class="<?php echo ($selected_category == $category['category_name']) ? 'active-category' : ''; ?>"><?php echo $category['category_name']; ?></a>
         <?php endforeach; ?>
     </div>
     </body>
