@@ -114,7 +114,7 @@ if($selected_category == 'All Products'){
                 margin: 5px 0 0 0; 
             }
 
-            /* category nav bar */
+            /* category filter bar */
             .category-nav {
                 background: white;
                 padding: 10px 0;
@@ -143,36 +143,96 @@ if($selected_category == 'All Products'){
                 color: white;
             }
 
+            /* product listing  */
+            .product-container {
+                max-width: 1200px;
+                margin: 40px auto;
+                padding: 0 20px;
+            }
+            .products-grid {
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 25px;
+            }
+            .product-card {
+                background: white;
+                border-radius: 10px;
+                padding: 15px;
+                box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+                text-align: center;
+                transition: 0.3s;
+            }
+            .product-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            }
+            .product-card img {
+                width: 100%;
+                height: 150px;
+                object-fit: cover;
+                border-radius: 8px;
+            }
+            .product-card h3 {
+                margin: 12px 0;
+                font-size: 16px;
+                color: #333;
+            }
+            .price {
+                color: #e42b2b;
+                font-size: 18px;
+                font-weight: bold;
+            }
         </style>
     </head>
     <body>
         <div class="navbar">
-        <a href="index.php"><img src="img/winsoftlogo.png" alt="Winsoft Logo""></a>
-        <div>
-            <a href="index.php">Home</a>
-            <a href="login.php">Login</a>
-            <a href="register.php">Register</a>
+            <a href="index.php"><img src="img/winsoftlogo.png" alt="Winsoft Logo""></a>
+            <div>
+                <a href="index.php">Home</a>
+                <a href="login.php">Login</a>
+                <a href="register.php">Register</a>
+            </div>
         </div>
-    </div>
 
-    <!-- page nav bar -->
-    <div class="second-nav">
-        <a href="index.php" class="<?php echo ($current_page == 'index.php') ? 'active' : ''; ?>">Home</a>
-        <a href="shop_page.php" class="<?php echo ($current_page == 'shop_page.php') ? 'active' : ''; ?>">Shopping</a>
-        <a href="service.php" class="<?php echo ($current_page == 'service.php') ? 'active' : ''; ?>">Service</a>
-        <a href="contact_us.php" class="<?php echo ($current_page == 'contact_us.php') ? 'active' : ''; ?>">Contact Us</a>
-        <a href="store_location.php" class="<?php echo ($current_page == 'store_location.php') ? 'active' : ''; ?>">Store Location</a>
-    </div>
+        <!-- page nav bar -->
+        <div class="second-nav">
+            <a href="index.php" class="<?php echo ($current_page == 'index.php') ? 'active' : ''; ?>">Home</a>
+            <a href="shop_page.php" class="<?php echo ($current_page == 'shop_page.php') ? 'active' : ''; ?>">Shopping</a>
+            <a href="service.php" class="<?php echo ($current_page == 'service.php') ? 'active' : ''; ?>">Service</a>
+            <a href="contact_us.php" class="<?php echo ($current_page == 'contact_us.php') ? 'active' : ''; ?>">Contact Us</a>
+            <a href="store_location.php" class="<?php echo ($current_page == 'store_location.php') ? 'active' : ''; ?>">Store Location</a>
+        </div>
 
-    <div class="current-category">
-        <h2>Category</h2>
-        <h1 class="showing-catagory"><?php echo ($selected_category); ?></h1>
-    </div>
+        <div class="current-category">
+            <h2>Category</h2>
+            <h1 class="showing-catagory"><?php echo ($selected_category); ?></h1>
+        </div>
 
-    <div class="category-nav">
-        <?php foreach($categories as $category): ?>
-        <a href="shop_page.php?category=<?php echo urlencode($category['category_name']); ?>"class="<?php echo ($selected_category == $category['category_name']) ? 'active-category' : ''; ?>"><?php echo $category['category_name']; ?></a>
-        <?php endforeach; ?>
-    </div>
+        <div class="category-nav">
+            <?php foreach($categories as $category): ?>
+            <a href="shop_page.php?category=<?php echo urlencode($category['category_name']); ?>"class="<?php echo ($selected_category == $category['category_name']) ? 'active-category' : ''; ?>"><?php echo $category['category_name']; ?></a>
+            <?php endforeach; ?>
+        </div>
+        
+        <!-- product listing -->
+        <div class="product-container">
+            <?php if(count($products) > 0): ?>
+            <div class="products-grid">
+                <?php foreach($products as $product): ?>
+                    <a href="product_detail.php?id=<?php echo $product['product_id']; ?>" style="text-decoration: none; color: inherit;">
+                        <div class="product-card">
+                            <img src="<?php echo $product['image']; ?>" alt="<?php echo $product['product_name']; ?>" style="width: 100%; height: 150px; object-fit: cover; border-radius: 5px;">
+                            <h3><?php echo $product['product_name']; ?></h3>
+                            <p class="price">RM <?php echo number_format($product['price'], 2); ?></p>
+                        </div>
+                    </a>
+                <?php endforeach; ?>
+            </div>
+            <?php else: ?>
+                <div class="no-product">
+                    <p>No products found in this category.</p>
+                </div>
+            <?php endif; ?>
+        </div>
     </body>
 </html>
