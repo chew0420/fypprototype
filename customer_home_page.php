@@ -143,7 +143,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
     <div class="second-nav">
         <a href="index.php" class="<?php echo ($current_page == 'customer_home_page.php') ? 'active' : ''; ?>">Home</a>
         <a href="customer_shop_page.php" class="<?php echo ($current_page == 'customer_shop_page.php') ? 'active' : ''; ?>">Shopping</a>
-        <a href="service.php" class="<?php echo ($current_page == 'service.php') ? 'active' : ''; ?>">Service</a>
+        <a href="customer_book_service_page.php" class="<?php echo ($current_page == 'customer_book_service_page.php') ? 'active' : ''; ?>">Service</a>
         <a href="contact_us.php" class="<?php echo ($current_page == 'contact_us.php') ? 'active' : ''; ?>">Contact Us</a>
         <a href="store_location.php" class="<?php echo ($current_page == 'store_location.php') ? 'active' : ''; ?>">Store Location</a>
     </div>
@@ -172,7 +172,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
     <div class="footer">
         <p>&copy; 2026 Winsoft Solution Sdn Bhd. All rights reserved.</p>
         <p>📍 17, Jalan Cempaka 1, Taman Bunga Cempaka Biru, 86400 Parit Raja, Johor</p>
-        <p>📞 012-3456789 | ✉️ info@winsoft.com</p>
+        <p>📞 012-3456789 | ✉️ tiam@winsoft.com.my</p>
     </div>
 </body>
 </html>

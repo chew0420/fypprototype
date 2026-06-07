@@ -198,7 +198,7 @@ if($selected_category == 'All Products'){
         <div class="second-nav">
             <a href="customer_home_page.php" class="<?php echo ($current_page == 'customer_home_page.php') ? 'active' : ''; ?>">Home</a>
             <a href="customer_shop_page.php" class="<?php echo ($current_page == 'customer_shop_page.php') ? 'active' : ''; ?>">Shopping</a>
-            <a href="service.php" class="<?php echo ($current_page == 'service.php') ? 'active' : ''; ?>">Service</a>
+            <a href="customer_book_service_page.php" class="<?php echo ($current_page == 'customer_book_service_page.php') ? 'active' : ''; ?>">Service</a>
             <a href="contact_us.php" class="<?php echo ($current_page == 'contact_us.php') ? 'active' : ''; ?>">Contact Us</a>
             <a href="store_location.php" class="<?php echo ($current_page == 'store_location.php') ? 'active' : ''; ?>">Store Location</a>
         </div>
