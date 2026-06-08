@@ -5,7 +5,7 @@ require_once 'db.php';
 if(isset($_SESSION['user_id'])) {
     // Redirect to role-based dashboard
     if($_SESSION['role'] == 'admin') {
-        header("Location: admin_home.php");
+        header("Location: superadmin_home_page.php");
     } elseif($_SESSION['role'] == 'staff') {
         header("Location: staff_home.php");
     } elseif($_SESSION['role'] == 'technician') {

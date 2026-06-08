@@ -15,8 +15,8 @@ if(isset($_POST['login'])) {
         $_SESSION['user_id'] = $user['user_id'];
         $_SESSION['role'] = $user['role'];
         
-        if($user['role'] == 'superadmin') {
-            header("Location: superadmin_home.php");
+        if($user['role'] == 'admin') {
+            header("Location: superadmin_home_page.php");
         } elseif($user['role'] == 'staff') {
             header("Location: staff_home.php");
         } elseif($user['role'] == 'technician') {
