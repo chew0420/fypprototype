@@ -6,6 +6,10 @@ if(!isset($_SESSION['user_id']) || $_SESSION['role'] != 'admin') {
     exit();
 }
 require_once 'db.php';
+
+// get all page in database
+$stmt = $pdo->query("SELECT * FROM tbl_website_page ORDER BY page_name");
+$pages = $stmt->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -60,6 +64,12 @@ require_once 'db.php';
         .sidebar .nav-link i {
             margin-right: 10px;
         }
+
+        .welcome-banner {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 15px;
+            color: white;
+        }
         
         /* Responsive for mobile */
         @media (max-width: 768px) {
@@ -112,9 +122,29 @@ require_once 'db.php';
         
         <!-- Main Content - scrollable -->
         <div class="main-content p-4" style="width: 100%;">
-            
-            
-            
+            <div class="welcome-banner p-4 mb-4">
+                <h2><i class="bi bi-file-text"></i> Page List</h2>
+                <p class="mb-0">Select a page below to edit its content using the web editor.</p>
+            </div>
+
+            <!-- Pages Grid -->
+            <div class="row">
+                <?php foreach($pages as $page): ?>
+                <div class="col-md-4 col-lg-3 mb-4">
+                    <div class="card table-card h-100">
+                        <div class="card-body text-center py-4">
+                            <i class="bi bi-file-earmark-text" style="font-size: 48px; color: #667eea;"></i>
+                            <p class="text-muted small">Page: <?php echo $page['page_name']; ?></p>
+                            <div>
+                                <a href="superadmin_web_editor_page.php?page_id=<?php echo $page['page_id']; ?>" class="btn btn-primary w-100">
+                                    <i class="bi bi-pencil-square"></i> Edit Page
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php endforeach; ?>
+            </div>
         </div>
     </div>
     
