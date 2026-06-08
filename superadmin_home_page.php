@@ -45,6 +45,10 @@ $recentUsers = $pdo->query("SELECT * FROM tbl_user ORDER BY created_at DESC LIMI
             width: 250px;
             overflow-y: auto;
         }
+
+        .sidebar img {
+            height: 35px;
+        }
         
         /* Main content area - push to the right of sidebar */
         .main-content {
@@ -123,7 +127,7 @@ $recentUsers = $pdo->query("SELECT * FROM tbl_user ORDER BY created_at DESC LIMI
         <div class="sidebar">
             <div class="p-3">
                 <h4 class="text-white text-center py-3 mb-4">
-                    <i class="bi bi-shop"></i> Winsoft<br>
+                    <img src="img/winsoftlogo.png" alt="Winsoft Logo"> Winsoft<br>
                     <small class="fs-6">Admin Panel</small>
                 </h4>
                 <nav class="nav flex-column">

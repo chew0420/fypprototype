@@ -29,6 +29,10 @@ require_once 'db.php';
             width: 250px;
             overflow-y: auto;
         }
+
+        .sidebar img {
+            height: 35px;
+        }
         
         /* Main content area - push to the right of sidebar */
         .main-content {
@@ -77,7 +81,7 @@ require_once 'db.php';
         <div class="sidebar">
             <div class="p-3">
                 <h4 class="text-white text-center py-3 mb-4">
-                    <i class="bi bi-shop"></i> Winsoft<br>
+                    <img src="img/winsoftlogo.png" alt="Winsoft Logo"> Winsoft<br>
                     <small class="fs-6">Admin Panel</small>
                 </h4>
                 <nav class="nav flex-column">
